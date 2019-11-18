@@ -1,0 +1,15 @@
+.root{
+-fx-background: blue;
+}
+
+.button{
+-fx-text-fill: black;
+-fx-border-color: green;
+-fx-background-color: blue;
+}
+
+.label{
+-fx-font: bold italic 10pt "Arial";
+-fx-text-fill: black;
+}
+
