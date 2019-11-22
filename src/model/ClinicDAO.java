@@ -2,6 +2,9 @@ package model;
 
 import java.sql.*;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  * Student database access object.
  *
@@ -25,12 +28,12 @@ public class ClinicDAO extends BaseDAO {
         final String ITEM_NUMBER = "item_number varchar(11), ";
         final String MAIN_CATEGORY = "main_category varchar(30), ";
         final String SUBCATEGORY = "subcategory varchar(30), ";
-	final String DESCRIPTION = "description varchar(75), ";
-	final String SIZE = "size varchar(8), ";
-	final String ITEM_UNIT = "item_unit varchar(20), ";
-	final String MIN_QTY_REQUIRED = "min_qty_required varchar(11), ";
-	final String QTY_ON_HAND = "qty_on_hand varchar(11), ";
-	final String VEND_NUMBER = "vend_number varchar(11), ";
+        final String DESCRIPTION = "description varchar(75), ";
+        final String SIZE = "size varchar(8), ";
+        final String ITEM_UNIT = "item_unit varchar(20), ";
+        final String MIN_QTY_REQUIRED = "min_qty_required varchar(11), ";
+        final String QTY_ON_HAND = "qty_on_hand varchar(11), ";
+        final String VEND_NUMBER = "vend_number varchar(11), ";
         final String PRIMARY_KEY =  "primary key (ID))";
 
         try (Connection connection = this.getConnection()) {
@@ -78,6 +81,8 @@ public class ClinicDAO extends BaseDAO {
      */
     public void addNewItem(String item_number, String main_category, String subcategory, String description, String size,
 	String item_unit, String min_qty_required, String qty_on_hand, String vend_number) {
+    	
+    	JFrame frame = new JFrame("Status Message");
         
         try (Connection connection = this.getConnection()) {
   
@@ -86,7 +91,8 @@ public class ClinicDAO extends BaseDAO {
 			subcategory +"', '"+ description +"', '"+ size +"', '"+ item_unit +"', '"+ min_qty_required+"', '"+ qty_on_hand+"', " + "'"+ vend_number+"' )");
         	preparedStatement.execute();
             System.out.print("\nConnected to database!\nNew item was added successfully\n");
-           // lblDisplay.setText();
+            JOptionPane.showMessageDialog(frame, "New item was added successfully");
+            
         } catch (SQLException e) {
             System.out.print(e.getMessage());
         }
