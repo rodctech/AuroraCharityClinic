@@ -1,0 +1,25 @@
+.root{
+-fx-background: gray;
+}
+
+.button{
+-fx-text-fill: black;
+-fx-border-color: green;
+-fx-background-color: #A9A9A9;
+}
+
+.label{
+-fx-font: bold italic 10pt "Arial";
+-fx-text-fill: #989898;
+}
+
+.jfx-text-field {
+-fx-prompt-text-fill: #989898;
+}
+
+.text-field {
+    -fx-prompt-text-fill: gray;
+}
+.text-field > .text {
+        -fx-effect: dropshadow( two-pass-box , blue , .5, 10 , 1 , 1);    
+}
