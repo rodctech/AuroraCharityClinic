@@ -2,8 +2,11 @@ package model;
 
 import java.sql.*;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
- * Student database access object.
+ * Clinic inventory database access object.
  *
  */
 
@@ -25,12 +28,11 @@ public class ClinicDAO extends BaseDAO {
         final String ITEM_NUMBER = "item_number varchar(11), ";
         final String MAIN_CATEGORY = "main_category varchar(30), ";
         final String SUBCATEGORY = "subcategory varchar(30), ";
-	final String DESCRIPTION = "description varchar(75), ";
-	final String SIZE = "size varchar(8), ";
-	final String ITEM_UNIT = "item_unit varchar(20), ";
-	final String MIN_QTY_REQUIRED = "min_qty_required varchar(11), ";
-	final String QTY_ON_HAND = "qty_on_hand varchar(11), ";
-	final String VEND_NUMBER = "vend_number varchar(11), ";
+        final String DESCRIPTION = "description varchar(75), ";
+        final String ITEM_UNIT = "item_unit varchar(20), ";
+        final String MIN_QTY_REQUIRED = "min_qty_required varchar(11), ";
+        final String QTY_ON_HAND = "qty_on_hand varchar(11), ";
+        final String VEND_NUMBER = "vend_number varchar(11), ";
         final String PRIMARY_KEY =  "primary key (ID))";
 
         try (Connection connection = this.getConnection()) {
@@ -60,7 +62,7 @@ public class ClinicDAO extends BaseDAO {
             System.out.print("\n\n");
             if(createTable){
                 PreparedStatement preparedStatement = connection.prepareStatement(CREATE_TABLE + ID + ITEM_NUMBER + MAIN_CATEGORY +
-		 SUBCATEGORY + DESCRIPTION + SIZE + ITEM_UNIT + MIN_QTY_REQUIRED + QTY_ON_HAND + VEND_NUMBER + PRIMARY_KEY);
+		 SUBCATEGORY + DESCRIPTION + ITEM_UNIT + MIN_QTY_REQUIRED + QTY_ON_HAND + VEND_NUMBER + PRIMARY_KEY);
                 preparedStatement.execute();
                 System.out.print("\nPrepared Statement executed..");
                 System.out.print("\nCreated new table.\n");
@@ -76,17 +78,20 @@ public class ClinicDAO extends BaseDAO {
      * Add a new item to the database.
      * @param .
      */
-    public void addNewItem(String item_number, String main_category, String subcategory, String description, String size,
+    public void addNewItem(String item_number, String cboMainCat, String cboSubCat, String description,
 	String item_unit, String min_qty_required, String qty_on_hand, String vend_number) {
+    	
+    	JFrame frame = new JFrame("Status Message");
         
         try (Connection connection = this.getConnection()) {
   
-        	PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO clinic_inventory(item_number, main_category, subcategory, "
-        			+ "description, size, item_unit, min_qty_required, qty_on_hand, vend_number)" + " VALUES ('" + item_number +"', '"+ main_category +"','"+ 
-			subcategory +"', '"+ description +"', '"+ size +"', '"+ item_unit +"', '"+ min_qty_required+"', '"+ qty_on_hand+"', " + "'"+ vend_number+"' )");
+        	PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO clinic_inventory(item_number, cboMainCat, cboSubCat, "
+        			+ "description, item_unit, min_qty_required, qty_on_hand, vend_number)" + " VALUES ('" + item_number +"', '"+ cboMainCat +"','"+ 
+			cboSubCat +"', '"+ description +"', '"+ item_unit +"', '"+ min_qty_required+"', '"+ qty_on_hand+"', " + "'"+ vend_number+"' )");
         	preparedStatement.execute();
             System.out.print("\nConnected to database!\nNew item was added successfully\n");
-           // lblDisplay.setText();
+            JOptionPane.showMessageDialog(frame, "New item was added successfully");
+            
         } catch (SQLException e) {
             System.out.print(e.getMessage());
         }
