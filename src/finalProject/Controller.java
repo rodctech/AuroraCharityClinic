@@ -37,12 +37,12 @@ public class Controller implements Initializable {
 	@FXML private TextField read_item_number, read_category, read_item_name;
 	@FXML private Button btn, button, button1;
 	@FXML private Label addlabel;
-	@FXML private Hyperlink link;
+	@FXML private Button link;
 	@FXML private ComboBox combo;
 	@FXML private Label comboBoxLabel;
 
 	
-	@FXML private Label lab = new Label("Results:");
+	@FXML private Label lab = new Label(" ");
 	@FXML private Label newRecords = new Label("");
 
 

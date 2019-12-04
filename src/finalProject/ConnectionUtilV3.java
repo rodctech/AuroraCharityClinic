@@ -7,12 +7,11 @@ public class ConnectionUtilV3 {
 	public static Connection conDB() {
 		try {
 			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aurora_charity_clinic?serverTimezone=UTC", "root", "Stand25!"); //password
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/aurora_charity_clinic?serverTimezone=UTC", "root", "Database"); //password
 			return con;
 		} catch(Exception ex) {
 			System.err.println("ConnectionUtil : " + ex.getMessage());
 			return null;
 		}
 	}
-	
 }

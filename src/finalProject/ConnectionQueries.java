@@ -62,7 +62,7 @@ public class ConnectionQueries {
 			if (Integer.parseInt(read_item_number.getText()) == i) {
 				System.out.println(map.get(i).toMapString());
 				//System.out.print("\n " + i.g);
-				lab.setVisible(true);
+				//lab.setVisible(true);
 				lab.setText(map.get(i).toMapString());
 			}
 			

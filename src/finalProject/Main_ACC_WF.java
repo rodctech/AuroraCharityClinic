@@ -14,7 +14,7 @@ public class Main_ACC_WF extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("ACC Database");
 		AnchorPane anchor = (AnchorPane) FXMLLoader.load(getClass().getResource("Combine_GUI.fxml"));
-		Scene myScene = new Scene(anchor, 550, 423);  //450
+		Scene myScene = new Scene(anchor, 1200, 800);  //450
 		primaryStage.setScene(myScene);
 		primaryStage.show();		
 	}

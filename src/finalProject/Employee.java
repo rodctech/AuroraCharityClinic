@@ -66,8 +66,5 @@ public class Employee {
 	public String getEMP_PASSWORD() { return EMP_PASSWORD; }
 	public void setEMP_PASSWORD(String EMP_PASSWORD) { this.EMP_PASSWORD  = EMP_PASSWORD; }
 	
-	
-	
-	
-	
+
 }
