@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane prefHeight="549.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kdowning.Controller">
+   <TabPane prefHeight="549.0" prefWidth="453.0" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="Add Item">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="520.0" prefWidth="360.0" stylesheets="@style.css">
+                  <children>
+                      <VBox id="vBox" alignment="CENTER" prefHeight="520.0" prefWidth="423.0" spacing="20">
+                          <Label fx:id="addlabel" prefHeight="0.0" prefWidth="143.0" stylesheets="@style.css" text="Enter Item Information" />
+                        <TextField fx:id="item_number" maxWidth="200.0" promptText="Enter Item Number" />
+                          <TextField fx:id="main_category" maxWidth="200" promptText="Enter Main Category" />
+                        <TextField fx:id="subcategory" maxWidth="200.0" promptText="Enter a subcategory if any" />
+                  	<TextField fx:id="description" maxWidth="200.0" promptText="Enter Description" />
+                  	<TextField fx:id="size" maxWidth="200.0" promptText="Size if applicable" />
+                  	<TextField fx:id="item_unit" maxWidth="200.0" promptText="Count per package unit" />
+                  	<TextField fx:id="min_qty_required" maxWidth="200.0" promptText="Minimum quantity required?" />
+                  	<TextField fx:id="qty_on_hand" maxWidth="200.0" promptText="Current Quantity?" />
+                  	<TextField fx:id="vend_number" maxWidth="200.0" promptText="Vendor ID Number" />
+                          <Button fx:id="button" onAction="#addAction" text="ADD NEW INVENTORY ITEM" />
+                        <Label fx:id="lblDisplay" prefHeight="17.0" prefWidth="143.0" text="Display Messages:" />
+                      </VBox>
+                  </children>
+               </AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Untitled Tab 2">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+       </Tab>
+     </tabs>
+   </TabPane>
+</StackPane>
