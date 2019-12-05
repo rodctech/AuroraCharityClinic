@@ -27,6 +27,9 @@ public class TestControllerV3 implements Initializable {
     @FXML
     private Label labelDisplayMessage;
 
+    @FXML
+    private TextField createAllow;
+
     //@FXML private Button button = new Button();
 
     Stage dialogStage = new Stage();
@@ -35,7 +38,9 @@ public class TestControllerV3 implements Initializable {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-    Stage newStage = new Stage();
+    PreparedStatement isAdmin = null;
+    ResultSet adminResult = null;
+    //Stage newStage = new Stage();
 
     public TestControllerV3() {
         connection = ConnectionUtilV3.conDB();
@@ -43,14 +48,16 @@ public class TestControllerV3 implements Initializable {
 
 
     public void loginAction(ActionEvent event) {
-        String ID_NUMBER = textIDNumber.getText().toString();
+        String idNum = textIDNumber.getText().toString();
         String EMP_PASSWORD = textPassword.getText().toString();
+        //String CREATE_DELETE_ITEM_ALLOW = createAllow.getText().toString();
 
         String sql = "SELECT * FROM EMPLOYEE WHERE ID_NUMBER = ? and EMP_PASSWORD = ?";
 
+
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, ID_NUMBER);
+            preparedStatement.setString(1, idNum);
             preparedStatement.setString(2, EMP_PASSWORD);
             resultSet = preparedStatement.executeQuery();
 
@@ -66,7 +73,27 @@ public class TestControllerV3 implements Initializable {
                 labelDisplayMessage.setText("Login Successful");
                 System.out.println("Login Successful");
 
-                logInSuccess();
+                String sqlAdmin = "SELECT CREATE_DELETE_ITEM_ALLOW FROM EMPLOYEE WHERE ID_NUMBER = ?";
+                //String CREATE_DELETE_ITEM_ALLOW = createAllow.getText().toString();
+                isAdmin = connection.prepareStatement(sqlAdmin);
+                isAdmin.setString(1, idNum);
+                adminResult = isAdmin.executeQuery();
+
+                adminResult.next();
+                String theUserIsAdmin = adminResult.getString("CREATE_DELETE_ITEM_ALLOW");
+
+               // Boolean isAdminYesNo = adminResult.next();
+                System.out.println(theUserIsAdmin);
+
+                if (theUserIsAdmin.equals("Y")) {
+                    logInSuccessAdmin();
+                }
+
+                else {
+                    logInSuccess();
+                }
+
+
 
             }
             if (textIDNumber.getText().isEmpty() || textPassword.getText().isEmpty()) {
@@ -80,10 +107,25 @@ public class TestControllerV3 implements Initializable {
     }
 
     @FXML
-    public void logInSuccess() {
+    public void logInSuccessAdmin() {
 
         Stage stage = new Stage();
         Main_ACC_WF mainPage = new Main_ACC_WF();
+
+        try {
+            mainPage.start(stage);
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+    }
+
+
+    @FXML
+    public void logInSuccess() {
+
+        Stage stage = new Stage();
+        Main_NotAdmin mainPage = new Main_NotAdmin();
 
         try {
             mainPage.start(stage);

@@ -60,6 +60,25 @@ public class Controller implements Initializable {
     private Label comboBoxLabel;
 
     @FXML
+    private Label mainl1 = new Label(" ");
+    @FXML
+    private Label mainl2 = new Label(" ");
+    @FXML
+    private Label mainl3 = new Label(" ");
+    @FXML
+    private Label mainl4 = new Label(" ");
+    @FXML
+    private Label mainl5 = new Label(" ");
+    @FXML
+    private Label mainl6 = new Label(" ");
+    @FXML
+    private Label mainl7 = new Label(" ");
+    @FXML
+    private Label mainl8 = new Label(" ");
+    @FXML
+    private Label mainl9 = new Label(" ");
+
+    @FXML
     private Label lab = new Label(" ");
     @FXML
     private Label newRecords = new Label("");
@@ -75,7 +94,6 @@ public class Controller implements Initializable {
 
     }
 
-
     @FXML
     public void comboInserted() throws SQLException {
 
@@ -89,10 +107,9 @@ public class Controller implements Initializable {
 
             case "Main_Category": {
                 System.out.println("Main_Category was selected");
-                findMainCategory(read_category);
+                findMainCategory(read_category, mainl1, mainl2, mainl3, mainl4, mainl5, mainl6, mainl7, mainl8, mainl9);
                 break;
             }
-
 
             case "Vend_Number": {
                 System.out.println("Qty_On_Hand was selected");
@@ -105,14 +122,12 @@ public class Controller implements Initializable {
             }
 
         }
-		
-		
+
 		/*
 		if((combo.getValue().toString().equals("Item_Unit")) && read_item_number != null) {
 			
 			//ConnectionQueries.connectItemUnit(combo, read_item_number);
 			ConnectionQueries.Query();
-		
 		}
 		*/
     }
@@ -121,16 +136,13 @@ public class Controller implements Initializable {
 
         if (!(read_item_number.getText().isEmpty())) {
             ConnectionQueries.Query(read_item_number, lab);
-
         }
-
-
     }
 
-    public static void findMainCategory(TextField read_category) {
+    public static void findMainCategory(TextField read_category, Label a, Label b, Label c, Label d, Label e, Label f, Label g, Label h, Label i) {
 
         if (!(read_category.getText().isEmpty())) {
-            ConnectionQueries.getMinQty(read_category);
+            ConnectionQueries.getMinQty(read_category, a, b, c, d, e, f, g, h, i);
         }
     }
 

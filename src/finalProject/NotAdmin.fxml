@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #37ccc7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalProject.Controller">
+    <children>
+        <TabPane prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="100.0" tabMaxWidth="100.0">
+            <tabs>
+                <Tab text="Add New Item">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="540.0">
+                            <children>
+                                <Label fx:id="addlabel" layoutX="345.0" layoutY="41.0" prefHeight="23.0" prefWidth="224.0" text="Enter Item Information">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font></Label>
+                                <TextField fx:id="item_number" layoutX="175.0" layoutY="109.0" maxWidth="200.0" promptText="Enter Item Number" />
+                                <TextField fx:id="main_category" layoutX="175.0" layoutY="178.0" maxWidth="200" promptText="Enter Main Category" />
+                                <TextField fx:id="subcategory" layoutX="175.0" layoutY="242.0" maxWidth="200.0" promptText="Enter a subcategory if any" />
+                                <TextField fx:id="description" layoutX="175.0" layoutY="311.0" maxWidth="200.0" promptText="Enter Description" />
+                                <TextField fx:id="size" layoutX="508.0" layoutY="109.0" promptText="Enter Size" />
+                                <TextField fx:id="item_number_tf" layoutX="508.0" layoutY="178.0" promptText="Count per package unit" />
+                                <TextField fx:id="min_qty_required" layoutX="508.0" layoutY="242.0" maxWidth="200.0" promptText="Minimum quantity required?" />
+                                <TextField fx:id="qty_on_hand" layoutX="508.0" layoutY="295.0" maxWidth="200.0" promptText="Current Quantity?" />
+                                <TextField fx:id="vend_number" layoutX="336.0" layoutY="367.0" maxWidth="200.0" promptText="Vendor ID Number" />
+                                <Button fx:id="button" layoutX="276.0" layoutY="431.0" onAction="#addItems" text="ADD NEW INVENTORY ITEM" />
+                                <Button fx:id="button1" layoutX="487.0" layoutY="431.0" onAction="#clear" text="CLEAR" />
+                                <Label fx:id="newRecords" layoutX="175.0" layoutY="513.0" prefHeight="17.0" prefWidth="109.0" />
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Search Records">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #37ccc7;">
+                            <children>
+                                <TextField fx:id="read_item_number" layoutX="88.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
+                                <Button fx:id="btn" layoutX="918.0" layoutY="9.0" mnemonicParsing="false" onAction="#comboInserted" text="Submit" />
+                                <Label layoutX="6.0" layoutY="14.0" text="Item Number:" />
+                                <Label layoutX="260.0" layoutY="14.0" text="Category:" />
+                                <Button fx:id="fullReportLink" layoutX="210.0" layoutY="712.0" mnemonicParsing="false" onAction="#fullAction" text="Full Inventory Report: Create" />
+                                <Button fx:id="lowStockLink" layoutX="14.0" layoutY="712.0" mnemonicParsing="false" onAction="#lowAction" text="Low Inventory Levels: Create" />
+                                <TextField fx:id="read_category" layoutX="329.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
+                                <VBox layoutX="7.0" layoutY="46.0" prefHeight="653.0" prefWidth="1178.0">
+                                    <children>
+                                        <HBox prefHeight="8.0" prefWidth="1100.0">
+                                            <children>
+                                                <Label fx:id="mainl1" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl2" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl3" layoutX="125.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl4" layoutX="240.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl5" layoutX="355.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl6" layoutX="470.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl7" layoutX="585.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl8" layoutX="700.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                                <Label fx:id="mainl9" layoutX="815.0" layoutY="10.0" prefHeight="17.0" prefWidth="115.0" />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="lab" />
+                                    </children></VBox>
+                                <ComboBox fx:id="combo" layoutX="744.0" layoutY="9.0" onAction="#comboInserted" prefWidth="150.0" promptText="Select Filter" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

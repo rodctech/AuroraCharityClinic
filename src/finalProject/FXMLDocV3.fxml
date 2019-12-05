@@ -19,3 +19,5 @@
       <Label fx:id="labelDisplayMessage" layoutX="208.0" layoutY="181.0" prefHeight="17.0" prefWidth="227.0" />
 	</children>
 </AnchorPane>
+
+
