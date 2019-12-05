@@ -49,8 +49,8 @@
                         <Button fx:id="btn" layoutX="918.0" layoutY="9.0" mnemonicParsing="false" text="Submit" />
                         <Label layoutX="6.0" layoutY="14.0" text="Item Number:" />
                         <Label layoutX="260.0" layoutY="14.0" text="Category:" />
-                        <Button fx:id="link" layoutX="210.0" layoutY="712.0" mnemonicParsing="false" onAction="#action" text="Full Inventory Report: Create" />
-                        <Button layoutX="14.0" layoutY="712.0" mnemonicParsing="false" text="Low Inventory Levels: Create" />
+                        <Button fx:id="fullReportLink" layoutX="210.0" layoutY="712.0" mnemonicParsing="false" onAction="#fullAction" text="Full Inventory Report: Create" />
+                        <Button fx:id="lowStockLink" layoutX="14.0" layoutY="712.0" mnemonicParsing="false" onAction="#lowAction" text="Low Inventory Levels: Create" />
                         <TextField fx:id="read_category" layoutX="329.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
                         <TextField layoutX="581.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
                         <Label layoutX="505.0" layoutY="14.0" text="Description:" />

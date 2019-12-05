@@ -21,10 +21,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+public class LowStockTable extends Application {
 
-public class DynamicTable extends Application {
-
-    static String SQL = "SELECT * from clinic_inventory";  //CUSTOMER
+    static String SQL = "SELECT * from clinic_inventory where QTY_ON_HAND < MIN_QTY_REQUIRED";  //CUSTOMER
     static Connection c;
 
     //TABLE VIEW AND DATA
@@ -53,8 +52,8 @@ public class DynamicTable extends Application {
 
                 final int j = i;
                 TableColumn columnCall = new TableColumn(result.getMetaData().getColumnName(i + 1));
-                columnCall.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
-                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                columnCall.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
                         return new SimpleStringProperty(param.getValue().get(j).toString());
                     }
                 });
@@ -96,6 +95,7 @@ public class DynamicTable extends Application {
 
         stage.setTitle("BARKZ");
 
+
         //TableView
         tableview = new TableView();
         tableview.setMinWidth(1150);
@@ -109,24 +109,17 @@ public class DynamicTable extends Application {
         // BorderPane border = new BorderPane(vbox);
         //vbox.setMinHeight(400);
         //vbox.setMinWidth(200);
-
         // border.setStyle("-fx-background-color: blue;");
-
         // border.setCenter(vbox);
         // anchor.getChildren().add(border);
         // anchor.setLeftAnchor(vbox, 95.0);
         //anchor.setTopAnchor(vbox, 55.0);  //35.0
-
         // vbox.setPadding(new Insets(35, 10, 10, 10));
         //vbox.setStyle("-fx-background-color: red;");
-
-
         // Button btn = new Button("Submit");
         //vbox.getChildren().add(btn);
 
-
         buildData();
-
         //Main Scene
         Scene scene = new Scene(anchor, 1300, 600);  //1200, 800
 
@@ -135,3 +128,5 @@ public class DynamicTable extends Application {
 
     }
 }
+
+
