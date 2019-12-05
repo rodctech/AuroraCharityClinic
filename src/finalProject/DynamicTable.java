@@ -94,7 +94,7 @@ public class DynamicTable extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        stage.setTitle("BARKZ");
+        stage.setTitle("Full List Current Inventory Report ");
 
         //TableView
         tableview = new TableView();

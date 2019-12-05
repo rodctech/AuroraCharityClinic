@@ -93,7 +93,7 @@ public class LowStockTable extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        stage.setTitle("BARKZ");
+        stage.setTitle("Low Stock Inventory Report");
 
 
         //TableView
