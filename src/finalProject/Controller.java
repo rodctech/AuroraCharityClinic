@@ -47,7 +47,7 @@ public class Controller implements Initializable {
     @FXML
     private TextField read_item_number, read_category, read_item_name;
     @FXML
-    private Button btn, button, button1, addEmpButton;
+    private Button btn, button, button1, addEmpButton , showEmpButton;
     @FXML
     private Label addlabel;
     @FXML
@@ -257,4 +257,21 @@ public class Controller implements Initializable {
             }
         });
     }
+
+    @FXML
+    public void showEmployees() {
+
+        Stage stage = new Stage();
+        ShowEmployees showE = new ShowEmployees();
+
+        showEmpButton.setOnMouseClicked(e -> {
+            try {
+                showE.start(stage);
+            } catch (Exception e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
+    }
+
 }
