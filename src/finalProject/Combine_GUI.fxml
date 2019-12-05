@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: F0E68C;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalProject.Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #37ccc7;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="finalProject.Controller">
    <children>
       <TabPane prefHeight="800.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="100.0" tabMaxWidth="100.0">
         <tabs>
@@ -68,7 +68,7 @@
           </Tab>
           <Tab text="Search Records">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: F0E68C;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #37ccc7;">
                      <children>
                         <TextField fx:id="read_item_number" layoutX="88.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
                         <Button fx:id="btn" layoutX="918.0" layoutY="9.0" mnemonicParsing="false" text="Submit" />
@@ -77,13 +77,11 @@
                         <Button fx:id="fullReportLink" layoutX="210.0" layoutY="712.0" mnemonicParsing="false" onAction="#fullAction" text="Full Inventory Report: Create" />
                         <Button fx:id="lowStockLink" layoutX="14.0" layoutY="712.0" mnemonicParsing="false" onAction="#lowAction" text="Low Inventory Levels: Create" />
                         <TextField fx:id="read_category" layoutX="329.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
-                        <TextField layoutX="581.0" layoutY="9.0" prefHeight="25.0" prefWidth="156.0" />
-                        <Label layoutX="505.0" layoutY="14.0" text="Description:" />
                         <VBox layoutX="7.0" layoutY="46.0" prefHeight="653.0" prefWidth="1178.0">
                            <children>
                               <Label fx:id="lab" text=" " />
                            </children></VBox>
-                        <ComboBox fx:id="combo" layoutX="748.0" layoutY="9.0" onAction="#comboInserted" prefWidth="150.0" promptText="Select Filter" />
+                        <ComboBox fx:id="combo" layoutX="744.0" layoutY="9.0" onAction="#comboInserted" prefWidth="150.0" promptText="Select Filter" />
                      </children>
                   </AnchorPane>
             </content>
