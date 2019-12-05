@@ -41,9 +41,13 @@ public class Controller implements Initializable {
     private TextField qty_on_hand, vend_number;
 
     @FXML
+    private TextField id_number, emp_lname, emp_fname, emp_mid_initial, emp_dob, emp_job_title,
+            create_delete_item_allow, edit_item_allow, read_data_allow, report_enabled, emp_password;
+
+    @FXML
     private TextField read_item_number, read_category, read_item_name;
     @FXML
-    private Button btn, button, button1;
+    private Button btn, button, button1, addEmpButton;
     @FXML
     private Label addlabel;
     @FXML
@@ -55,11 +59,13 @@ public class Controller implements Initializable {
     @FXML
     private Label comboBoxLabel;
 
-
     @FXML
     private Label lab = new Label(" ");
     @FXML
     private Label newRecords = new Label("");
+
+    @FXML
+    private Label newEmpRecords = new Label("");
 
 
     @Override
@@ -144,7 +150,40 @@ public class Controller implements Initializable {
         size.clear();
         newRecords.setText(" ");
 
+        id_number.clear();
+        emp_lname.clear();
+        emp_fname.clear();
+        emp_mid_initial.clear();
+        emp_dob.clear();
+        emp_job_title.clear();
+        create_delete_item_allow.clear();
+        edit_item_allow.clear();
+        read_data_allow.clear();
+        report_enabled.clear();
+        emp_password.clear();
+
+        newEmpRecords.setText(" ");
+
         //});
+    }
+
+    @FXML
+    public void addEmployee() {
+
+        Write_DB writing = new Write_DB();
+
+        addEmpButton.setOnMouseClicked(e -> {
+
+            writing.addNewEmployee(id_number.getText(), emp_lname.getText(), emp_fname.getText(),
+                    emp_mid_initial.getText(), emp_dob.getText(), emp_job_title.getText(), create_delete_item_allow.getText(),
+                    edit_item_allow.getText(), read_data_allow.getText(), report_enabled.getText(), emp_password.getText());
+
+            clear();
+
+        });
+        newEmpRecords.setTextFill(Color.rgb(0, 0, 128));
+        newEmpRecords.setText("Successfully Added new Employee to the Database");
+
     }
 
     @FXML
@@ -161,8 +200,6 @@ public class Controller implements Initializable {
 			public void addNewRecords(TextField item_number, TextField main_category, TextField subcategory, TextField description, TextField size,
 					  TextField item_unit, TextField min_qty_required, TextField qty_on_hand, TextField vend_number) {
 			*/
-
-
             writing.addNewRecords(item_number.getText(), main_category.getText(), subcategory.getText(),
                     description.getText(), size.getText(), item_number_tf.getText(), min_qty_required.getText(),
                     qty_on_hand.getText(), vend_number.getText());
